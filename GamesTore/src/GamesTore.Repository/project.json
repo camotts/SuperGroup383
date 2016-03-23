@@ -1,13 +1,13 @@
-﻿{
+{
   "version": "1.0.0-*",
-  "description": "GamesTore.Domain Class Library",
-  "authors": [ "Patrick" ],
+  "description": "GamesTore.Repository Class Library",
+  "authors": [ "Cam" ],
   "tags": [ "" ],
   "projectUrl": "",
   "licenseUrl": "",
-
   "frameworks": {
-    "netcore50": {
+
+    "dnxcore50": {
       "dependencies": {
         "Microsoft.CSharp": "4.0.1-beta-23516",
         "System.Collections": "4.0.11-beta-23516",
@@ -16,5 +16,13 @@
         "System.Threading": "4.0.11-beta-23516"
       }
     }
+  },
+  "dependencies": {
+    "EntityFramework.MicrosoftSqlServer": "7.0.0-*",
+    "EntityFramework.Commands": "7.0.0-*",
+    "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-*"
+  },
+  "commands": {
+    "ef" : "EntityFramework.Commands"
   }
 }
