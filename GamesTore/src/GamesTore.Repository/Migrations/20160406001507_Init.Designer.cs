@@ -8,8 +8,8 @@ using GamesTore.Repository;
 namespace GamesTore.Repository.Migrations
 {
     [DbContext(typeof(TheaterDbContext))]
-    [Migration("20160324230900_Init5")]
-    partial class Init5
+    [Migration("20160406001507_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,19 +38,14 @@ namespace GamesTore.Repository.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("ManagerId");
-
                     b.HasKey("Id");
                 });
 
             modelBuilder.Entity("GamesTore.Repository.Classes.TheaterRoom", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id");
 
                     b.Property<string>("SeatsJSON");
-
-                    b.Property<int?>("TheaterId");
 
                     b.HasKey("Id");
                 });
@@ -69,16 +64,17 @@ namespace GamesTore.Repository.Migrations
 
             modelBuilder.Entity("GamesTore.Repository.Classes.User", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id");
 
                     b.Property<string>("FirstName");
 
                     b.Property<string>("LastName");
 
+                    b.Property<string>("Password");
+
                     b.Property<int>("Role");
 
-                    b.Property<int?>("TheaterId");
+                    b.Property<string>("Username");
 
                     b.HasKey("Id");
                 });
@@ -90,18 +86,11 @@ namespace GamesTore.Repository.Migrations
                         .HasForeignKey("TicketId");
                 });
 
-            modelBuilder.Entity("GamesTore.Repository.Classes.Theater", b =>
-                {
-                    b.HasOne("GamesTore.Repository.Classes.User")
-                        .WithMany()
-                        .HasForeignKey("ManagerId");
-                });
-
             modelBuilder.Entity("GamesTore.Repository.Classes.TheaterRoom", b =>
                 {
                     b.HasOne("GamesTore.Repository.Classes.Theater")
                         .WithMany()
-                        .HasForeignKey("TheaterId");
+                        .HasForeignKey("Id");
                 });
 
             modelBuilder.Entity("GamesTore.Repository.Classes.Ticket", b =>
@@ -115,7 +104,7 @@ namespace GamesTore.Repository.Migrations
                 {
                     b.HasOne("GamesTore.Repository.Classes.Theater")
                         .WithMany()
-                        .HasForeignKey("TheaterId");
+                        .HasForeignKey("Id");
                 });
         }
     }

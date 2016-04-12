@@ -1,13 +1,13 @@
 ﻿{
   "version": "1.0.0-*",
   "description": "GamesTore.Domain Class Library",
-  "authors": [ "Patrick" ],
+  "authors": [ "Cam" ],
   "tags": [ "" ],
   "projectUrl": "",
   "licenseUrl": "",
-
   "frameworks": {
-    "netcore50": {
+
+    "dnxcore50": {
       "dependencies": {
         "Microsoft.CSharp": "4.0.1-beta-23516",
         "System.Collections": "4.0.11-beta-23516",
@@ -18,3 +18,4 @@
     }
   }
 }
+
